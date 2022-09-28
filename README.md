@@ -21,5 +21,7 @@
 
 <h2>Como iniciar o site com o banco de dados?</h2>
 
+<p> Primeiramente instalar o node modules com o comando npm install --save express</p>
+
 <p>
 O processo é simples, é só voçê criar seu banco de dados e adicionar a configurações dele corretamente no arquivo database/database.js e inicializar com npx nodemon pelo terminal que as tabelas seram criadas automaticamente com o método sync do node.</p>
