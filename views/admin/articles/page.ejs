@@ -1,0 +1,57 @@
+<%- include('../../partials/header'); %>
+    <%- include('../../partials/homenavbar'); %>
+
+        <body>
+            <div class="container">
+                <% let i=9 %>
+                    <% result.articles.rows.forEach(article=> { %>
+                        <% let data=article.createdAt %>
+                            <div class="container">
+                                <div class="row row justify-content-center">
+                                    <div class="col col-md-10">
+                                        <div class="mt-3 mb-3">
+                                            <div>
+                                                <span>
+                                                    <%= i++ %>.
+                                                </span>
+                                                <span>
+                                                    <a class="a-link" href="/<%= article.slug %>">
+                                                        <%= article.title %>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                            <span>
+                                                <%= data %>
+                                            </span>
+                                            <div>
+                                                <a href="/<%= article.slug %>" class="a-link-lm">Leia mais...</a>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% }) %>
+
+                                <div class="row">
+                                    <div class="col col-12">
+                                        <% if(result.page>2) { %>
+                                            <a style="float: left;" href="/articles/page/<%= result.page - 1 %>">
+                                                < Anterior </a>
+                                                    <% } else if(result.page==2) { %>
+                                                        <a style="float: left;" href="/">
+                                                            < Anterior</a>
+                                                                <% } %>
+
+                                                                    <% if(result.next) { %>
+                                                                        <a style="float: right;"
+                                                                            href="/articles/page/<%= result.page + 1 %>">Próximo
+                                                                            ></a>
+                                                                        <% } %>
+                                    </div>
+                                </div>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer'); %>

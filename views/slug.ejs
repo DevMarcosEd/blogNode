@@ -1,0 +1,36 @@
+<%- include('partials/header'); %>
+    <%- include('partials/homenavbar'); %>
+        <%- include('partials/_msg'); %>
+
+            <body>
+                <div class="container mt-4">
+                    <% let qtdresult=1 %>
+                        <% let contador=0 %>
+
+                            <% articles.forEach(article=> { %>
+                                <% contador +=qtdresult %>
+                                    <% }) %>
+                                        <p>Foram encontrados <%= contador %> resultado(s)</p>
+
+                                        <% let i=1 %>
+                                            <% articles.forEach(article=> { %>
+                                                <div class="mt-3 mb-3">
+                                                    <div>
+                                                        <span>
+                                                            <%= i++ %>.
+                                                        </span>
+                                                        <span>
+                                                            <%= article.title %>
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <a class="a-link" href="/<%= article.slug %>">Leia
+                                                            mais...</a>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <% }) %>
+                </div>
+            </body>
+
+            <%- include('partials/footer'); %>

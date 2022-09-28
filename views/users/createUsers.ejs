@@ -1,0 +1,36 @@
+<%- include('../partials/header'); %>
+    <%- include('../partials/homenavbar'); %>
+        <%- include('../partials/_msg'); %>
+
+            <div class="container">
+                <hr>
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2 style="text-align: center;">Cadastro de Usuário</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/users/createUser" method="post">
+                            <div class="row">
+                                <div class="col-md-6"><label class="color-label">Digite seu nome:</label>
+                                    <input class="form-control mb-3" type="name" name="name"
+                                        placeholder="Digite seu primeiro nome">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="color-label">Digite seu sobrenome:</label>
+                                    <input class="form-control mb-3" type="lastname" name="lastname"
+                                        placeholder="Digite seu sobrenome">
+                                </div>
+                            </div>
+
+
+                            <label class="color-label">Digite seu email:</label>
+                            <input class="form-control mb-3" type="email" name="email" placeholder="email@exemplo.com">
+                            <label class="color-label">Digite sua senha:</label>
+                            <input class="form-control mb-3" type="password" name="password" id="password"
+                                placeholder="Digite sua senha">
+                            <button type="submit" class="btn btn-dark mt-3 w-100">Criar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <%- include('../partials/footer'); %>

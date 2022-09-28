@@ -1,0 +1,47 @@
+<%- include('partials/header'); %>
+    <%- include('partials/homenavbar'); %>
+        <%- include('partials/_msg')%>
+
+            <body>
+                <div class="container mt-4">
+
+                    <% let i=1 %>
+
+                        <% articles.forEach(article=> { %>
+                            <% let data=article.createdAt %>
+                                <div class="container">
+                                    <div class="row row justify-content-center">
+                                        <div class="col col-md-10">
+
+                                            <div>
+                                                <span>
+                                                    <%= i++ %>.
+                                                </span>
+                                                <span>
+                                                    <a class="a-link" href="/<%= article.slug %>">
+                                                        <%= article.title %>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                            <span>
+                                                <%= data %>
+                                            </span>
+                                            <div>
+                                                <a class="a-link-lm" href="/<%= article.slug %>">Leia mais...</a>
+                                            </div>
+
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }) %>
+
+                                    <div class="row">
+                                        <div class="col col-12">
+                                            <a style="float: right;" href="/articles/page/2">Próximo ></a>
+                                        </div>
+                                    </div>
+                </div>
+            </body>
+
+            <%- include('partials/footer'); %>

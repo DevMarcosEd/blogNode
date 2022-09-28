@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+    <%- include('../partials/_msg') %>
+        <div class="container">
+            <hr>
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h2>Recuperação de senha</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/enviandoNovaSenha" method="post">
+                        <label for="">Digite seu email:</label>
+                        <input class="form-control mb-3" type="email" name="email" placeholder="email@exemplo.com">
+                        <button type="submit" class="btn btn-success mt-3 w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include('../partials/footer') %>

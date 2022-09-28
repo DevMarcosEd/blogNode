@@ -1,0 +1,39 @@
+.alertaSuccess {
+    background-color: #D1E7DD;
+    width: 100%;
+    color: #0F5132;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.alertaError {
+    background-color: #F8D7DA;
+    width: 100%;
+    color: #842029;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.a-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.a-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.a-link-lm {
+    color: #535252;
+}
+
+.a-link-lm:hover {
+    color: #7c7c7c;
+}
+
+.color-label {
+    color: #555555;
+}
