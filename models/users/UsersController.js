@@ -84,8 +84,9 @@ router.post('/authenticate', (req, res) => {
         if(user != undefined) { //se existe um usuario com esse email
             // validar senha
             let correct = bcrypt.compareSync(password, user.password) // comparando hash de senha
-
+            
             if(correct) {
+
                 req.session.user = {
                     id: user.id,
                     email: user.email,

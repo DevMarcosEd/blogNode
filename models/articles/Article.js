@@ -25,6 +25,6 @@ Category.hasMany(Article) // (N para N)
 Article.belongsTo(Category) // 1 article pertence a 1 categoria (1 para 1)
 
 // Sincronizar esse model com os relacionamento com a tebela no bd
-Article.sync({force: false})
+// Article.sync({force: false})
 
 module.exports = Article

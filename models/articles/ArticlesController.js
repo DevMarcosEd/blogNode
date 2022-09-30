@@ -6,10 +6,17 @@ const slugify = require('slugify')
 const adminAuth = require('../../middlewares/adminAuth')
 
 router.get('/articles', adminAuth, (req, res) => {
+    // Article.findAll({
+    //     include: [{model: Category}]
+    // }).then(articles => {
+    //     res.render('admin/articles/index', {articles: articles})
+    // })
     Article.findAll({
         include: [{model: Category}]
     }).then(articles => {
-        res.render('admin/articles/index', {articles: articles})
+        Category.findAll().then(categories => {
+            res.render('admin/articles/index', {articles: articles, categories: categories})
+        })
     })
 })
 
