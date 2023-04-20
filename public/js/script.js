@@ -9,3 +9,6 @@ function confirmDelet(event, form) {
     }
 }
 
+function onSubmit(token) {
+    document.getElementById("login").submit();
+}

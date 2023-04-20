@@ -11,7 +11,7 @@ let transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         user: 'marcosedaraujo@gmail.com',
-        pass: 'nddhbetuotydzsul'
+        pass: 'ectenzlvvnahbgby'
     }
 })
 
@@ -90,7 +90,7 @@ router.post('/authenticate', (req, res) => {
                 req.session.user = {
                     id: user.id,
                     email: user.email,
-                    eAdmin: user.eAdmin
+                    eAdmin: user.eAdmin,
                 }
                 // res.json(req.session.user)
                 res.redirect('/articles')
@@ -119,23 +119,35 @@ router.post('/enviandoNovaSenha', (req, res) => {
     let salt = bcrypt.genSaltSync(10)
     let hash = bcrypt.hashSync(newPassword, salt)
     
+    User.findOne({where: { email:email}}).then(userEmail => {
 
-    User.update({password: hash}, {
-        where: {
-            email: email
+        if(userEmail != undefined) {
+            User.update({password: hash}, {
+                where: {
+                    email: email
+                }
+            }).then(() => {
+                transporter.sendMail({
+                    from: 'Marcos Eduardo <seuemail@gmail.com>',
+                    to: email,
+                    subject: 'Sua nova senha:',
+                    text: newPassword
+                }).then(message => {
+                    console.log(message)
+                }).catch(err => {
+                    console.log(err)
+                })
+        
+               req.flash('success_msg', 'Nova senha enviada para seu e-mail!')
+               res.redirect('/login')
+            })
+        } else {
+            req.flash('error_msg','Email não cadastrado em nosso site')
+            res.redirect('/login')
         }
-    }).then(() => {
-        transporter.sendMail({
-            from: 'Marcos Eduardo <seuemail@gmail.com>',
-            to: email,
-            subject: 'Sua nova senha:',
-            text: newPassword
-        }).then(message => {
-            console.log(message)
-        }).catch(err => {
-            console.log(err)
-        })
-        res.send('nova senha enviada para o seu email!')
+
+    }).catch(err => {
+        console.log(err)
     })
     
 })

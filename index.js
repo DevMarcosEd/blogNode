@@ -19,7 +19,7 @@ const Article = require('./models/articles/Article')
     // Sessão
     app.use(session({
         secret: "purpleCat", // palavra que o express session utiliza para aumenta segurança das sessões
-        cookie: {maxAge: 1200000}, //Não salva dados, vai dizer que o user tem uma sessão no servidor //tempo de expiração com max-age
+        cookie: {maxAge: 3600000}, //Não salva dados, vai dizer que o user tem uma sessão no servidor //tempo de expiração com max-age //1hr
         resave: false,
         saveUninitialized: false
     }))

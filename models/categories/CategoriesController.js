@@ -13,8 +13,10 @@ router.get('/categories', adminAuth, (req, res) => {
 })
 
 // Rota de cadastro de categoria
-router.get('/categories/newCategories', adminAuth, (req, res) => {
-    res.render('admin/categories/newCategories')
+router.get('/categories/newCategories', (req, res) => {
+    Category.findAll().then(categories => {
+        res.render('admin/categories/newCategories', {categories: categories})
+    })
 })
 
 router.post('/categories/save', adminAuth, (req, res) => {
@@ -91,7 +93,9 @@ router.get('/categories/edit/:id', adminAuth, (req, res) => {
 
     Category.findByPk(id).then(category => { //pesquisar categoria pelo id
         if(category != undefined) {
-            res.render('admin/categories/editCategory', {category: category})
+            Category.findAll().then(categories => {
+                res.render('admin/categories/editCategory', {categories: categories, category: category})
+            })
         } else {
             res.redirect('/admin/categories')
         }

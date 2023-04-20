@@ -8,10 +8,12 @@
                         <h2>Login</h2>
                     </div>
                     <div class="card-body">
-                        <form action="/authenticate" method="post">
+                        <form action="/authenticate" method="post" id="login">
                             <input class="form-control mb-3" type="email" name="email" placeholder="email@exemplo.com">
                             <input class="form-control" type="password" name="password" placeholder="******">
-                            <button type="submit" class="btn btn-success mt-3 w-100">Entrar</button>
+                            <button class="g-recaptcha btn btn-success mt-3 w-100"
+                                data-sitekey="6Lcq70QiAAAAAOQ7vXP1W9g4iOKP1h3oix9OLm4p"
+                                data-callback="onSubmit">Entrar</button>
                             <a href="/esqueciSenha">Esqueci minha senha</a>
                         </form>
                     </div>
