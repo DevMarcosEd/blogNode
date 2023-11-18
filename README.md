@@ -1,6 +1,6 @@
 <h3>Blog com autenticação de usuario feito com node.js</h3>
 
-<img src="./banner/techBlog.png">
+<img src="./banner/blogNode.png">
 
 <h2>Depencêcias</h2>
 <ul>
